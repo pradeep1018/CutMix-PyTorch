@@ -30,7 +30,7 @@ model_names = sorted(name for name in models.__dict__
 
 parser = argparse.ArgumentParser(description='Cutmix PyTorch CIFAR-10, CIFAR-100 and ImageNet-1k Training')
 parser.add_argument('--net_type', default='pyramidnet', type=str,
-                    help='networktype: resnet, and pyamidnet')
+                    help='networktype: resnet, and pyramidnet')
 parser.add_argument('-j', '--workers', default=4, type=int, metavar='N',
                     help='number of data loading workers (default: 4)')
 parser.add_argument('--epochs', default=90, type=int, metavar='N',
@@ -51,7 +51,7 @@ parser.add_argument('--no-bottleneck', dest='bottleneck', action='store_false',
                     help='to use basicblock for CIFAR datasets (default: bottleneck)')
 parser.add_argument('--dataset', dest='dataset', default='cifar10', type=str,
                     help='dataset (options: cifar10, cifar100, and imagenet)')
-parser.add_argument('--no-verbose', dest='verbose', action='store_false',
+parser.add_argument('--no-verbose', dest='verbose', action='store_true',
                     help='to print the status at every iteration')
 parser.add_argument('--alpha', default=300, type=float,
                     help='number of new channel increases per depth (default: 300)')
@@ -59,7 +59,7 @@ parser.add_argument('--expname', default='TEST', type=str,
                     help='name of experiment')
 parser.add_argument('--beta', default=0, type=float,
                     help='hyperparameter beta')
-parser.add_argument('--cutmix_prob', default=0, type=float,
+parser.add_argument('--cutmix_prob', default=1, type=float,
                     help='cutmix probability')
 
 parser.set_defaults(bottleneck=True)
@@ -166,8 +166,8 @@ def main():
 
     model = torch.nn.DataParallel(model).cuda()
 
-    print(model)
-    print('the number of model parameters: {}'.format(sum([p.data.nelement() for p in model.parameters()])))
+    #print(model)
+    #print('the number of model parameters: {}'.format(sum([p.data.nelement() for p in model.parameters()])))
 
     # define loss function (criterion) and optimizer
     criterion = nn.CrossEntropyLoss().cuda()
