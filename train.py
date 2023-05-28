@@ -29,7 +29,7 @@ model_names = sorted(name for name in models.__dict__
                      and callable(models.__dict__[name]))
 
 parser = argparse.ArgumentParser(description='Cutmix PyTorch CIFAR-10, CIFAR-100 and ImageNet-1k Training')
-parser.add_argument('--net_type', default='pyramidnet', type=str,
+parser.add_argument('--net_type', default='resnet', type=str,
                     help='networktype: resnet, and pyramidnet')
 parser.add_argument('-j', '--workers', default=4, type=int, metavar='N',
                     help='number of data loading workers (default: 4)')
