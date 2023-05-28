@@ -273,7 +273,7 @@ def train(train_loader, model, criterion, optimizer, epoch):
                 epoch, args.epochs, i, len(train_loader), LR=current_LR, batch_time=batch_time,
                 data_time=data_time, loss=losses, top1=top1, top5=top5))
 
-    print('* Epoch: [{0}/{1}]\t Top 1-err {top1.avg:.3f}  Top 5-err {top5.avg:.3f}\t Train Loss {loss.avg:.3f}'.format(
+    print('Training - Epoch: [{0}/{1}]\t Top 1-err {top1.avg:.3f}  Top 5-err {top5.avg:.3f}\t Train Loss {loss.avg:.3f}'.format(
         epoch, args.epochs, top1=top1, top5=top5, loss=losses))
 
     return losses.avg
@@ -335,7 +335,7 @@ def validate(val_loader, model, criterion, epoch):
                 epoch, args.epochs, i, len(val_loader), batch_time=batch_time, loss=losses,
                 top1=top1, top5=top5))
 
-    print('* Epoch: [{0}/{1}]\t Top 1-err {top1.avg:.3f}  Top 5-err {top5.avg:.3f}\t Test Loss {loss.avg:.3f}'.format(
+    print('Validation - Epoch: [{0}/{1}]\t Top 1-err {top1.avg:.3f}  Top 5-err {top5.avg:.3f}\t Test Loss {loss.avg:.3f}'.format(
         epoch, args.epochs, top1=top1, top5=top5, loss=losses))
     return top1.avg, top5.avg, losses.avg
 
