@@ -49,7 +49,7 @@ parser.add_argument('--depth', default=32, type=int,
                     help='depth of the network (default: 32)')
 parser.add_argument('--no-bottleneck', dest='bottleneck', action='store_false',
                     help='to use basicblock for CIFAR datasets (default: bottleneck)')
-parser.add_argument('--dataset', dest='dataset', default='imagenet', type=str,
+parser.add_argument('--dataset', dest='dataset', default='cifar', type=str,
                     help='dataset (options: cifar10, cifar100, and imagenet)')
 parser.add_argument('--no-verbose', dest='verbose', action='store_false',
                     help='to print the status at every iteration')
