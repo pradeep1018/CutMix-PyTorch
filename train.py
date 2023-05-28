@@ -108,6 +108,10 @@ def main():
         else:
             raise Exception('unknown dataset: {}'.format(args.dataset))
 
+    else:
+        raise Exception('unknown dataset: {}'.format(args.dataset))
+
+    """
     elif args.dataset == 'imagenet':
         traindir = os.path.join('/home/data/ILSVRC/train')
         valdir = os.path.join('/home/data/ILSVRC/val')
@@ -149,9 +153,7 @@ def main():
             batch_size=args.batch_size, shuffle=False,
             num_workers=args.workers, pin_memory=True)
         numberofclass = 1000
-
-    else:
-        raise Exception('unknown dataset: {}'.format(args.dataset))
+    """
 
     print("=> creating model '{}'".format(args.net_type))
     if args.net_type == 'resnet':
